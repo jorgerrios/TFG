@@ -3,11 +3,12 @@ import os
 import sys
 
 #Python that delete the first row in the csv, information about the APP
-orden = str(sys.argv[1])
+brand = raw_input("Enter your mobile phone brand : ") 
+
 
 lines = list()
-keyWord1 = 'brand=' + orden
-with open('WigleCSV2.csv', 'r') as readFile:
+keyWord1 = 'brand=' + brand
+with open('WigleCSV.csv', 'r') as readFile:
 	reader = csv.reader(readFile)
 	for row in reader:
 		lines.append(row)
