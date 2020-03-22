@@ -1,8 +1,8 @@
 import csv  
 import json  
   
-file = 'mycsv.csv'
-json_file = 'myoutput2.json'
+file = 'dataOriginal.csv'
+json_file = 'dataOriginal.json'
 
 
 #Read CSV File
@@ -19,7 +19,7 @@ def read_CSV(file, json_file):
 def convert_write_json(data, json_file):
     with open(json_file, "w") as f:
         f.write(json.dumps(data, sort_keys=False, indent=4, separators=(',', ': '))) #for pretty
-        #f.write(json.dumps(data))
+        
 
 
 read_CSV(file,json_file)
