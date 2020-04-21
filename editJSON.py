@@ -17,9 +17,10 @@ CurrentLongitude = []
 AltitudeMeters = []
 AccuracyMeters = []
 Type = []
-Companies = []
+FinalCompany = []
 Routers = []
-
+Companies = ["MOVISTAR","WLAN","ORANGE","FTE","FLYBOX","MIFIBRA","LIVEBOX","JAZZTEL","VODAFONE","ONO","LOWI","MIWIFI","MASMOVIL","MAS-MOVIL"]
+Company = ["MOVISTAR","MOVISTAR","ORANGE/JAZZTEL","ORANGE/JAZZTEL","ORANGE/JAZZTEL","ORANGE/JAZZTEL","ORANGE/JAZZTEL","ORANGE/JAZZTEL","VODAFONE","VODAFONE","LOWI","MASMOVIL","MASMOVIL","MASMOVIL"]
 
 # Adding data to the differents array separation
 # Opening diferents txt neededs
@@ -79,28 +80,23 @@ with open("dataLONG.json", "r+") as file:
 
 	#Adding the service provider for the Network
 	for i in range(len(SSID)):
-		DIV =re.findall('\D+',SSID[i])
-		DIV2 = re.findall('\w+',DIV[0])
-		for x in range(len(DIV2)):
-			if(DIV2[x].find('_')>-1):
-				DIV2[x] = DIV2[x][:DIV2[x].find('_')]
-		DIV3= DIV2[0].replace('_', '')
-		for line in file3:
-			line.strip()
-			if re.match(DIV3, line):
-				Companies.append(line[15:])
-				Companies[len(Companies) -1] = Companies[len(Companies) -1].rstrip("\n")
-		if len(Companies) == i:
-			Companies.append("Not Found")
-		file3.seek(0)
+		if SSID[i] == "":
+			SSID2 = "Not found"
+		else:
+			SSID2 = SSID[i].upper()
+		for x in range(len(Companies)):
+			if SSID2.find(Companies[x]) > -1:
+				FinalCompany.append(Company[x])
+		if len(FinalCompany) == i:
+			FinalCompany.append("Not Found")
 
 	for x in range(len(data)):
-		data[x].update({"Name of the service provider": Companies[x]})
+		data[x].update({"Name of the service provider": FinalCompany[x]})
 
 
 	#Adding the router model
 	for i in range(len(MACshort)):
-		SUMA= Companies[i]+MACshort[i].upper()
+		SUMA= FinalCompany[i]+MACshort[i].upper()
 		for line in file4:
 			line = line.strip()
 			if re.match(SUMA,line):
