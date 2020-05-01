@@ -21,13 +21,18 @@ FinalCompany = []
 Routers = []
 Companies = ["MOVISTAR","WLAN","ORANGE","FTE","FLYBOX","MIFIBRA","LIVEBOX","JAZZTEL","VODAFONE","ONO","LOWI","MIWIFI","MASMOVIL","MAS-MOVIL"]
 Company = ["MOVISTAR","MOVISTAR","ORANGE/JAZZTEL","ORANGE/JAZZTEL","ORANGE/JAZZTEL","ORANGE/JAZZTEL","ORANGE/JAZZTEL","ORANGE/JAZZTEL","VODAFONE","VODAFONE","LOWI","MASMOVIL","MASMOVIL","MASMOVIL"]
+nv = []
+cve = []
+
+
 
 # Adding data to the differents array separation
 # Opening diferents txt neededs
 
 file2 = open("ouis2.txt", "r")
-file3 = open("companies.txt", "r")
+file3 = open("cveVulnerabilities.txt")
 file4 = open("routers.txt","r")
+file5 = open("nVulnerabilities.txt")
 
 
 # Open the file like a dictionary
@@ -70,7 +75,7 @@ with open("dataLONG.json", "r+") as file:
 			if re.match(string, line):
 				MACfromtext.append(line[18:])
 		if len(MACfromtext) == i:
-			MACfromtext.append("Not found")
+			MACfromtext.append("Company maker not found")
 		file2.seek(0)
 
 	for x in range(len(data)):
@@ -88,7 +93,7 @@ with open("dataLONG.json", "r+") as file:
 			if SSID2.find(Companies[x]) > -1:
 				FinalCompany.append(Company[x])
 		if len(FinalCompany) == i:
-			FinalCompany.append("Not Found")
+			FinalCompany.append("Service provider not found")
 
 	for x in range(len(data)):
 		data[x].update({"Name of the service provider": FinalCompany[x]})
@@ -102,7 +107,7 @@ with open("dataLONG.json", "r+") as file:
 			if re.match(SUMA,line):
 				Routers.append(line[31:])
 		if len(Routers) ==i:
-			Routers.append("Not Found")
+			Routers.append("Router model not found")
 		file4.seek(0)
 
 	for x in range(len(data)):
@@ -110,6 +115,32 @@ with open("dataLONG.json", "r+") as file:
 
 
 
+	for i in range(len(Routers)):
+		for line in file3:
+			line2 = line.split("=")
+			line3 = line2[0].strip()
+			if line3 == Routers[i]:
+				cve.append(line2[1].strip())
+		if len(cve) == i:
+			cve.append("Not CVE found")
+		file3.seek(0)
+		for line in file5:
+			line2 = line.split("=")
+			line3 = line2[0].strip()
+			if line3 == Routers[i]:
+				nv.append(line2[1].strip())
+		if len(nv) == i:
+			nv.append("0")
+		file5.seek(0)
+
+	for x in range(len(data)):
+		data[x].update({"Number of vulnerabilities found": nv[x]})
+		data[x].update({"CVE of the vulnerabilities found": cve[x]})
+
+
+
 # Creating the new json document
 	with open("dataOutput.json", 'w') as f:
 		json.dump(data, f, indent=4)
+
+
