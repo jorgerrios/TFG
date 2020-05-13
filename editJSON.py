@@ -36,7 +36,7 @@ file5 = open("nVulnerabilities.txt")
 
 
 # Open the file like a dictionary
-with open("dataLONG.json", "r+") as file:
+with open("data.json", "r+") as file:
 	data = json.load(file)
 
 	# Collecting all the data from the JSON
