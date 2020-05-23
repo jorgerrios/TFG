@@ -58,7 +58,7 @@ with open("data.json", "r+") as file:
 	# Adding the transmission channel value
 	for x in range(len(data)):
 		if Channel[x] <= 11:
-			data[x].update({"Frecuency used": "2,5GHz"})
+			data[x].update({"Frecuency used": "2,4GHz"})
 		else:
 			data[x].update({"Frecuency used": "5GHz"})
 
