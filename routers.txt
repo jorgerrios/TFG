@@ -41,6 +41,7 @@ MOVISTARA0:EC:80              =ZTE home station ADSL H108N
 MOVISTARCC:7B:35              =ZTE home station ADSL H108N
 MOVISTAR20:89:56              =ZTE home station ADSL H108N
 MOVISTAR54:BE:53              =ZTE home station ADSL H108N
+MOVISTARF8:BF:53              =ZTE home station ADSL H108N
 MOVISTAR78:D9:9F              =Zoovel ADSL Z-201
 MOVISTAR30:39:F2              =ADB home station P.DG-A4001N1
 MOVISTAR74:88:8B              =ADB home station P.DG-A4001N1
