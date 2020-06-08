@@ -64,6 +64,6 @@ ZTE ZXHN F68/ZTE H208N                                                          
 ZTE H267N                                                                                                     =Not CVE found
 ZTE H208N                                                                                                     =Not CVE found
 NuCom NC-DS224WTV                                                                                             =Not CVE found
-Technicolor TC7230.L                                                                                          =CVE-2019-10376, CVE-2019-1949
+Technicolor TC7230.L                                                                                          =CVE-2019-19495, CVE-2019-19494
 Sercomm H500-S                                                                                                =Not CVE found
 
