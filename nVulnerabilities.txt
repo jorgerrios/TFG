@@ -6,7 +6,7 @@ Comtrend C5813/ Comtrend CT-5365                                                
 Comtrend CT-5365                                                                                              =0
 Amper EG-663-V1/ Amper ASL26555                                                                               =0/ 0
 Amper ASL26555                                                                                                =0
-Amper xAVI 7968/7968+                                                                                         =0
+Amper xAVI 7968/7968+                                                                                         =2
 Teldat i-1104W                                                                                                =0
 Zyxel P8701T                                                                                                  =0
 Zyxel Prestige P870HNU-51B                                                                                    =1
