@@ -58,9 +58,9 @@ with open("data.json", "r+") as file:
 	# Adding the transmission channel value
 	for x in range(len(data)):
 		if Channel[x] <= 11:
-			data[x].update({"Frecuency used": "2,4GHz"})
+			data[x].update({"Frequency used": "2,4GHz"})
 		else:
-			data[x].update({"Frecuency used": "5GHz"})
+			data[x].update({"Frequency used": "5GHz"})
 
 	# Adding the fabricant name to the JSON
 	# Making the MAC address short
